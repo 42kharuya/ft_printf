@@ -1,0 +1,5 @@
+ft_lstiter
+プロトタイプ：void ft_lstiter(t_list *lst, void (*f)(void *));
+説明　　　　：lst全体に関数fを適用する。
+コード解説　：f(lst -> content);で現在のポインタが指すnodeのcontentに関数fを適用する
+　　　　　　　lst = lst -> next;ポインタを進める(strlenと同義の動作)

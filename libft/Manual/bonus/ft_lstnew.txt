@@ -1,0 +1,6 @@
+ft_lstnew
+プロトタイプ：t_list *ft_lstnew(void *content);
+説明　　　　：新しいnodeを作る。
+コード説明　：new_nodeをmallocで確保する
+　　　　　　　->nodeのcontentに引数のcontentを代入
+　　　　　　　->nextにはNULLを追加する(PDF記載)

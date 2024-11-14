@@ -1,0 +1,5 @@
+ft_lstsize
+プロトタイプ：int ft_lstsize(t_list *lst);
+説明　　　　：nodeリストのnode数を計算
+コード解説　：lst = lst->next;をすることで構造体ポインタが次に進み数を数える
+　　　　　　　strlenと同じ考え方

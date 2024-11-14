@@ -1,0 +1,17 @@
+ft_substr
+プロトタイプ：char	*ft_substr(char const *s, unsigned int start, size_t len)
+説明　　　　：文字列 s の start 文字目から len 文字分をmallocで確保したchar*に入れてそれを返す。
+返り値　　　：新たに作った文字列を返します。ただし、割り当てに失敗した場合はNULLを返します。
+コード解説　：if (!s)
+　　　　　　　→検索する文字列がそもそもないためreturn(NULL);
+　　　　　　　if (start >= s_len || !len)
+　　　　　　　→start >= s_lenの場合は、*sにstartバイト目が存在しないのでreturn (ft_calloc(1, 1));
+　　　　　　　 !lenの場合は、そもそもコピーするものがないので同じくreturn (ft_calloc(1, 1));
+　　　　　　　if (s_len - start < len)
+　　　　　　　→s_len - startでコピーする文字列の長さがわかり、これがlenより小さいと
+　　　　　　　 len分コピーすることはできないのでコピーできるlenの長さをlenに代入する
+　　　　　　　len = s_len - start;
+　　　　　　　→while (start-- > 0) startポインタまでsを進める。
+
+　　　　　　　　
+　　　　　　　

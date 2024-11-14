@@ -1,0 +1,5 @@
+ft_bzero
+プロトタイプ：void	ft_bzero(void *s, size_t n);
+説明　　　：len個の0バイトを文字列sに書き込む。lenが0の場合、bzero()は何もしない。
+コード解説：char *res:0バイトを書き込むので1文字1バイトであるchar *に代入する
+テストケース：オリジナルには'A' を埋め、自作には'b'を埋め、memcmpで比較

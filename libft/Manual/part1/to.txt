@@ -1,0 +1,13 @@
+ft_toupper
+プロトタイプ：int	ft_toupper(int c);
+説明　　　　：cが小文字の英字の時に大文字に変換する
+　　　　　　　それ以外はそのまま値を返す。
+　　　　　　　manよりThe argument must be representable as an unsigned char
+　　　　　　　なのでunsigned charの範囲外のものは処理する。
+-------------------------------------------------------------------------------------------
+ft_tolower
+プロトタイプ：int	ft_tolower(int c);
+説明　　　　：cが大文字の英字の時に小文字に変換する
+　　　　　　　それ以外はそのまま値を返す。
+　　　　　　　manよりThe argument must be representable as an unsigned char
+　　　　　　　なのでunsigned charの範囲外のものは処理する。

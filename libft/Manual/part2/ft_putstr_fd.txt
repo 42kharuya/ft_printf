@@ -1,0 +1,4 @@
+ft_putstr_fd
+プロトタイプ：void	ft_putstr_fd(char *s, int fd);
+説明、解説　：文字列をwhile文を使って出力
+　　　　　　　*(s++)だけだとメモリ領域に保管される値なので&*(s++)にしてポインタを指す　　　　

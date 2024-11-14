@@ -1,0 +1,8 @@
+ft_calloc
+プロトタイプ：void	*ft_calloc(size_t count, size_t size)
+説明　　　　：count * size分mallocで用意して、全て0で埋める(bzero)
+パラメータ　：#1. 割り当て回数（ count ）
+　　　　　　　#2. ブロックのバイト数(型)（ size ）
+コード解説　：if (size != 0 && count > SIZE_MAX / size)
+　　　　　　　→ count*size > SIZE＿MAXをSIZE＿MAXの範囲を超えないように比較するために移項
+　　　　　　　　またこの不等式だとsizeが0の場合に0で割ってしまうので、size != 0の加える。

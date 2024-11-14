@@ -1,0 +1,17 @@
+ft_itoa
+プロトタイプ：char *ft_itoa(int n);
+説明　　　　：mallocを使用して割り当て、引数として受け取った数値を文字列で返します。
+　　　　　　　負の数を処理する必要があります。
+-----------------------------------------------------------------------------
+コードの流れ　　桁数(符号を含む)を計算 -> 桁数分＋１をmallocで確保　->１桁ずつ代入しreturn
+ft_zero_handle ：n = 0の場合に、配列をmallocで確保して値を代入しreturn
+ft_count_digits：nを10で0になるまで割り続けて桁数を計算し、桁数(符号を含む)をreturn
+ft_divide_count：multiplier = count - i - 1; -> 乗数 = 桁数(符号を含む) - 符号分 - 1
+ft_itoa_make 　：if (n < 0)　-> 1文字目に符号'-'を追加
+　　　　　　　　　　divide = ft_divide_count;
+　　　　　　　　　　nをdivideで割った値(digit)が'-'の時はプラスにしてから代入
+　　　　　　　　　　全て代入したらreturn
+ft_itoa        ：0ハンドル
+　　　　　　　　　　桁数カウント(符号を含む)
+　　　　　　　　　　文字列をmallocで確保
+　　　　　　　　　　文字列に代入してreturn

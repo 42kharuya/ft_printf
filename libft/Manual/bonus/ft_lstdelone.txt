@@ -1,0 +1,11 @@
+ft_delone
+プロトタイプ：void ft_lstdelone(t_list *lst, void (*del)(void　*));
+説明　　　　：nodeのcontentに関数delを適用してlstをフリーする。
+　　　　　　　最後にfree(lst);するのはcontentは削除できてもfree(lst);をしないと
+　　　　　　　node自体は削除できないので最後にlst自体をフリーする
+関数ポインタとは：関数を指すポインタ
+　　　　　　　　　delではなく(*del)なのは関数ポインタは関数のアドレスを保持しているので
+　　　　　　　　　引数として関数を呼び出すことができる
+　　　　　　　　　ft_delone実行時の引数にcnt_free(void *p)とするとpにcnt_freeを適用した
+　　　　　　　　　return値を代入してしまうのに対して、cnt_freeとすることで関数のアドレスを渡すのと
+　　　　　　　　　同意になる。

@@ -1,0 +1,9 @@
+ft_strjoin
+プロトタイプ：char	*ft_strjoin(char const *s1, char const *s2);
+説明　　　　：*s1 と *s2 を連結した新しい文字列を返します。
+　　　　　　　ただし、割り当てに失敗した場合はNULLを返します。
+コード解説　：コード通り。mallocを用意→s1代入→s2代入
+疑問　　　　：const charをcharに代入する時に修飾子まで揃える必要があるか
+　　　　　　　(例)char const *s1；
+　　　　　　　    char	*ans;
+　　　　　　　　　*ans = (char)*s1;

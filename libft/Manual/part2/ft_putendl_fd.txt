@@ -1,0 +1,4 @@
+ft_putendl_fd
+プロトタイプ：void ft_putendl_fd(char *s, int fd);
+説明、解説　：基本はft_putstr_fdと同じだが最後に改行を入れる
+疑問　　　　：write(fd, "\n", 1);の第二引数はアドレスを指すポインタとして扱われるのか。

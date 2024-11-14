@@ -1,0 +1,6 @@
+ft_lstadd_front
+プロトタイプ：void ft_lstadd_front(t_list **lst, t_list *new);
+説明　　　　：nodeリスト(linked list)の先頭に新しいnodeを追加
+コード解説　：newのnextにlstの先頭ポインタを追加
+　　　　　　　lstポインタをnewに代入して先頭にする
+構造体のダブルポインタについて：

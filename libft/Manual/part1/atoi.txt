@@ -1,0 +1,20 @@
+ft_atoi
+プロトタイプ：int	ft_atoi(const char *str)
+説明　　　　：空白、+、-、数字で構成された文字をint型に直す。
+コード解説　：
+ft_atoi
+　　　　　　　while (*str == 32 || (*str >= 9 && *str <= 13))
+　　　　　　　→様々な空白部分を飛ばし、strのポインタを進める。
+　　　　　　　if (*str == '-')
+　　　　　　　→マイナスを検知して、signedを決め、strのポインタを進める。
+　　　　　　　while (*str >= '0' && *str <= '9')
+　　　　　　　→ansのoverflowを検知し、超える場合はLONG_MAXやLONG_MINの値を返す。
+　　　　　　　→超えない場合はansに数字を足し合わせる。
+　　　　　　　最後にsign*ansの値を返す
+ft_overflow
+　　　　　　　LONG_MAXを超えるものの検知
+　　　　　　　→LONGMAX < (ans*10) + digitをLONG_MAXの値を超えないように移項
+　　　　　　　LONG_MINを超えるものの検知
+　　　　　　　→LONGMIN > (-ans*10) - digitをLONG_MINの値を超えないように移項
+　　　　　　　それ以外
+　　　　　　　→1を返す

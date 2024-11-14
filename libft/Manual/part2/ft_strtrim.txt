@@ -1,0 +1,16 @@
+ft_strtrim
+プロトタイプ：char *ft_strtrim(char const *s1, char const *set);
+説明　　　　：mallocで確保したメモリに文字列 *s1 の先頭と末尾から*setで指定された文字が
+　　　　　　　削除されたコピーを返します。
+　　　　　　　s1="1234AAA22331122”
+　　　　　　　set="1234"
+　　　　　　　戻り値="AAA"
+パラメーター：#1.文字列
+　　　　　　　#2.トリミングする文字
+------------------------------------------------------------------------------
+コードの流れ　　s1の前方をトリム→ansの長さを計算する→ans_len+1分malloc確保→代入→return
+ft_detect_set：#真：setのいずれかの文字と一致する文字
+　　　　　　　　 #偽：setのいずれにも一致しない
+ft_ans_len　　：s1の後ろから探索しft_detect_setが偽つまり一致しなくなったらwhileを抜ける
+ft_strtrim　　：while (ft_detect_set(*s1, set))
+　　　　　　　　　→*s1がsetに含まれていればトリムするべき文字なのでポインタを進める。

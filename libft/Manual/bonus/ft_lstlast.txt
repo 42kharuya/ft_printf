@@ -1,0 +1,4 @@
+ft_lstlast
+プロトタイプ：t_list *ft_lstlast(t_list *lst);
+説明　　　　：nodeリストの最後のnodeを返す
+コード解説　：lst->nextがNULLの時に最後のnodeなのでそこまでwhileを回す

@@ -1,0 +1,10 @@
+ft_strmapi
+プロトタイプ：char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+説明　　　　：mallocを使用して割り当て、文字列 *s の各文字に関数 f を適用した新しい文字列を作成します。
+パラメータ　：#1. 反復処理の対象となる文字列。
+　　　　　　　#2. 各文字に適用する関数。
+コード解説　：ans = (char *)malloc(sizeof(char) * (count_char + 1));
+　　　　　　　-> *sの文字数分 + NULL終端分
+　　　　　　　ans[i] = f(i, s[i]);
+　　　　　　　-> 1文字ずつs[i]にfを適用したものをans[i]に代入する。
+　　　　　　　

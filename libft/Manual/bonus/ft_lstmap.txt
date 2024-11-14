@@ -1,0 +1,12 @@
+ft_lstmap
+プロトタイプ：t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+説明　　　　：lstの全要素に関数fを適用し、新しいlst(new)を作る。
+　　　　　　　必要に応じてnodeを削除する。
+パラメータ　：＃1.　リストの各要素のポインタのアドレス。
+　　　　　　　＃2.　リストの名contentに適用する関数fのアドレス。
+　　　　　　　＃3.　必要に応じて要素のコンテンツを削除するために使用される関数delのアドレス。
+コード解説　：node = ft_lstnew(f(lst->content));
+　　　　　　　->nodeにlstが指す現在のnodeにfを適用したものを、代入する
+　　　　　　　if (!node) -> もし代入に失敗した場合は、nodeを削除する
+　　　　　　　ft_lstdelone(node, del);がclear出ないのはnodeが1つでlinked listではないから。
+　　　　　　　ft_lstadd_back(&new, node); -> 新しいlstの後ろにnodeを追加する

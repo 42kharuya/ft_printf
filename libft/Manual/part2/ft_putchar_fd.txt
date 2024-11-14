@@ -1,0 +1,11 @@
+ft_putchar_fd
+プロトタイプ：void	ft_putchar_fd(char c, int fd);
+説明　　　　：fdを指定してwrite関数で文字を出力する
+write関数について
+->プロトタイプ：ssizr_t write(int fildes, const void *buf, size_t nbyte);
+　　　　　　　　そのため、第二引数はアドレスを指すポインタである必要がある、
+ファイルディスクリプタに関して
+->OSがファイルや他の入出力リソースへの参照を管理するために使用される番号(符号なし整数)
+　0: 標準入力（stdin）
+　1: 標準出力（stdout）
+　2: 標準エラー出力（stderr）　

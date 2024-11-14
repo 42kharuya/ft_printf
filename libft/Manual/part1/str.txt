@@ -1,0 +1,74 @@
+ft_strlen
+プロトタイプ：size_t	ft_strlen(const char *str);
+説明　　　　：文字列*strの指す文字列のバイト数を返す
+-------------------------------------------------------------------------------------------
+ft_strlcpy
+プロトタイプ：size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+説明　　　　：dstの先頭にsrcをsize-1分コピーし最後にNULL止めする(-1はNULL分)
+　　　　　　　dstsizeはdstの長さよりも小さい
+　　　　　　　manよりFor strlcpy() that means the length of src.
+　　　　　　　なので返り値はsrcのサイズ。
+パラメーター：#1. あて先文字列（*dst）
+　　　　　　　#2. ソース文字列（*src）
+　　　　　　　#3. s1の長さ（dstsize）
+コード解説　；(src[i] && i < (dstsize - 1))はsrcがある間でかつdstsizeの長さまでコピーする
+-------------------------------------------------------------------------------------------
+ft_strlcat
+プロトタイプ：size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+説明　　　　：dstの先頭にsrcをsize-1分コピーし最後にNULL止めする(-1はNULL分)
+　　　　　　　strlcpyと違ってdstsizeがdstの長さよりも長い場合と小さい場合がある。
+            返り値は実際に作ろうとしたのdstのサイズ。
+パラメータ　：#1. あて先文字列（ *dst ）
+　　　　　　　#2. ソース文字列（ *src ）
+　　　　　　　#3. s1の最大の長さ(dstバッファの最大許容長)（ dstsize ）
+コード解説　：strlcpyと違って末尾に追加するのでif (dstsize > dst_len)で作ろうとしているs1の長さが
+　　　　　　　dstの長さより小さい場合はコピーしない。
+　　　　　　　while (src[i] && j < dstsize - 1)はsrcがある間でかつdstsizeの長さまでコピーする
+            (return)コピーに成功した場合は、dst_len + src_lenつまり実際に作ろうとしたs1の長さを返す。
+            　　　　　コピーに失敗した場合は、dstsize + src_lenつまり実際に作ろうとしたs1の長さを返す。
+                    この時、dst_lenとdstsizeの違いはバッファの許容量である。
+                    そしてこの二つの小さい方にsrcの長さを足したものがreturn値となる。
+-------------------------------------------------------------------------------------------
+ft_strchr
+プロトタイプ：char	*ft_strchr(const char *src, int c);
+説明　　　　：cに一致した文字へのポインターを返し、もしcが見つからない場合は NULLを返す。
+　　　　　　　終端のヌル文字は文字列の一部とみなされ、c に '\0' が指定された場合には、
+　　　　　　　これらの関数は終端のヌル文字へのポインターを返す。
+　　　　　　　manよりc (converted to a char)なのでわかりやすくcharにキャストして比較している。
+　　　　　　　わざわざchar *sにキャストしたのはreturn値がchar *であるのに対して、srcはconst char *であるから。
+-------------------------------------------------------------------------------------------
+ft_strrchr
+プロトタイプ：char	*ft_strrchr(const char *s1, int c);
+説明　　　　：strchrと同じだがstrchrが前から探索するのに対して、strrchrは後ろから探索する。
+コード解説　：s_len = ft_strlen(s) + 1なのはNULL終端も探索するのでNULL終端分+1している。
+-------------------------------------------------------------------------------------------
+ft_strncmp
+プロトタイプ：int	ft_strncmp(const char *s1, const char *s2, size_t n);
+説明　　　　：s1,s1を最大nバイトまで1文字ずつくらべて、
+　　　　　　　s1が小さい場合　　　   →負の値
+　　　　　　　s1とs2が同じ場合　　→0
+　　　　　　　s1が大きい場合　　  　 →正の値
+　　　　　　　をそれぞれ返す。
+パラメータ　：#1. 比較文字列1（ *s1 ）
+　　　　　　　#2. 比較文字列2（ *s2 ）
+　　　　　　　#3. 比較バイト数（ n ）
+コード解説　：while ((s1[i] || s2[i]) && n-- > 0)はs1またはs2が存在し、かつnが0より大きい時。
+　　　　　　　if (s1[i] != s2[i])s1[i]とs2[i]の値がちがければ差分をreturnする。
+            manよりThe comparison is done using unsigned charactersなので、
+            差分を出すときはunsigned　charで計算する。
+-------------------------------------------------------------------------------------------
+ft_strnstr
+プロトタイプ：char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+説明　　　　：haystackのlenバイト内でneedleに一致する場所を探索し、haystackとneedleが
+　　　　　　　完全一致していたらその先頭ポインタを返す。
+パラメータ　：#1. 検索対象のメモリブロック（ *haystack ）
+　　　　　　　#2. 検索文字列（ *needle ）
+　　　　　　　#3. 検索バイト数（ len ）
+コード解説　：１つ目のwhileでlenのバイト内でneedleの1文字目を探索し、一致したら以降の文字列を2つ目のwhile
+　　　　　　　で比較する。全て一致したらそのポインタをリターンする、途中で不一致になったら2つ目のwhileを抜けて
+　　　　　　　１つ目に戻る。
+疑問　　　　：!needle[0]の場合と!needleは何が違うのか。!needleだとうまくいかなかった。
+-------------------------------------------------------------------------------------------
+ft_strdup
+プロトタイプ：char	*ft_strdup(const char *s);
+説明　　　　：s1+1(NULL終端分の＋１)mallocで確保してそこにs1をコピーする。

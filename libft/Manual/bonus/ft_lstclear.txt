@@ -1,0 +1,7 @@
+ft_lstclear
+プロトタイプ：void	ft_lstclear(t_list **lst, void (*del)(void *));
+説明　　　　：lstの各node全体にdel関数を適用する。
+　　　　　　　deloneと違う点：deloneは指定されたnodeのみにdel関数を適用するのに対して
+　　　　　　　　　　　　　　　　clearはlst全体にnodeを適用する
+コード解説　：node = (*lst)->next;は現在のnodeをフリーすることでlstが次以降のnodeにアクセス
+　　　　　　　できなくなるので、一時的にnodeにlstの現在のnode以降を保存している。

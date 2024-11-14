@@ -1,0 +1,13 @@
+ft_putnbr_fd
+プロトタイプ：void ft_putnbr_fd(int n, int fd);
+説明　　　　：指定されたファイルディスクリプタに対して整数nを出力します。
+コード解説　：
+コードの流れ　　nが負の値の時は'-'を出力 -> 桁数を計算 -> 割る数を計算　-> 1桁ずつ出力
+t_count_digits　：n /= 10;で桁数を計算し、res_digit++;し、return
+ft_divide_count：乗数 = 桁数 - 1なので、multiplier = count - 1;
+ft_putnbr_fd　　：count = ft_count_digits(n);
+　　　　　　　　　　-> 桁数を計算
+　　　　　　　　　　divide = ft_divide_count(count);
+　　　　　　　　　　-> 割る数を計算
+　　　　　　　　　　　　n / divideで一桁ずつ前からdigitの代入し、digitが負の値の時は正の値に直す
+　　　　　　　　　　　　digitを主力
