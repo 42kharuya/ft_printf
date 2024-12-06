@@ -14,7 +14,6 @@
 
 int ft_printf_str(char *str)
 {
-	printf("This is from function : %s\n", str);
 	if(!str)
 	{
 		write(1, "(null)", 6);

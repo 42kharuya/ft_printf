@@ -41,6 +41,11 @@ int	ft_printf_p(void *ptr)
 	uintptr_t	ptr_data;
 	int 		count;
 
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
 	ptr_data = (uintptr_t)ptr;
 	count = 2;
 	write(1, "0x", 2);
