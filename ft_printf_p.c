@@ -6,7 +6,7 @@
 /*   By: kharuya <kharuya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:03:30 by kharuya           #+#    #+#             */
-/*   Updated: 2024/11/13 13:53:40 by kharuya          ###   ########.fr       */
+/*   Updated: 2024/12/08 00:50:31 by kharuya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_printf_address(uintptr_t ptr_data)
 {
-	const char 	*hex_num;
-	char 		res[16+1];
+	const char	*hex_num;
+	char		res[16 + 1];
 	int			index;
 	int			start;
 
@@ -33,13 +33,12 @@ int	ft_printf_address(uintptr_t ptr_data)
 	while (res[start])
 		ft_putchar_fd(res[start++], 1);
 	return (16 - index - 1);
-
 }
 
 int	ft_printf_p(void *ptr)
 {
 	uintptr_t	ptr_data;
-	int 		count;
+	int			count;
 
 	if (!ptr)
 	{
@@ -52,4 +51,3 @@ int	ft_printf_p(void *ptr)
 	count += ft_printf_address(ptr_data);
 	return (count);
 }
-

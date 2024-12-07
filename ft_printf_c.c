@@ -6,13 +6,13 @@
 /*   By: kharuya <kharuya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:00:58 by kharuya           #+#    #+#             */
-/*   Updated: 2024/11/06 16:05:27 by kharuya          ###   ########.fr       */
+/*   Updated: 2024/12/08 00:52:06 by kharuya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_char(char c)
+int	ft_printf_c(char c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);

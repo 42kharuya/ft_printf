@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_int.c                                    :+:      :+:    :+:   */
+/*   ft_printf_xX.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kharuya <kharuya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 17:59:44 by kharuya           #+#    #+#             */
-/*   Updated: 2024/11/11 18:05:01 by kharuya          ###   ########.fr       */
+/*   Created: 2024/11/11 22:05:31 by kharuya           #+#    #+#             */
+/*   Updated: 2024/12/08 01:04:41 by kharuya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_int(int d)
+int	ft_printf_xX(unsigned int n, const char format)
 {
-	char *res;
-	int print_char;
+	const char	*hex_num;
+	int			count;
 
-	res = ft_itoa(d);
-	print_char = ft_printf_str(res);
-	free(res);
-	return (print_char);
+	count = 0;
+	if (format == 'x')
+		hex_num = HEX_LOWER;
+	else if (format == 'X')
+		hex_num = HEX_UPPER;
+	else
+		return (-1);
+	if (n >= 16)
+		count += ft_printf_xX(n / 16, format);
+	ft_putchar_fd(hex_num[n % 16], 1);
+	return (count + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: kharuya <kharuya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 18:56:11 by kharuya           #+#    #+#             */
-/*   Updated: 2024/11/11 19:46:12 by kharuya          ###   ########.fr       */
+/*   Updated: 2024/12/08 01:01:59 by kharuya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_divide_count(int count)
 	return (divide);
 }
 
-static char	*ft_itoa_make(char *ans,unsigned int u,	size_t count)
+static	char	*ft_itoa_make(char *ans, unsigned int u,	size_t count)
 {
 	size_t	i;
 	int		divide;
@@ -68,8 +68,7 @@ static char	*ft_itoa_make(char *ans,unsigned int u,	size_t count)
 	return (ans);
 }
 
-
-static	char *ft_itoa_unsigned(unsigned int u)
+static	char	*ft_itoa_unsigned(unsigned int u)
 {
 	size_t	count;
 	char	*ans;
@@ -85,11 +84,11 @@ static	char *ft_itoa_unsigned(unsigned int u)
 
 int	ft_printf_u(unsigned int u)
 {
-	char *res;
-	int print_char;
+	char	*res;
+	int		print_char;
 
 	res = ft_itoa_unsigned(u);
-	print_char = ft_printf_str(res);
+	print_char = ft_printf_s(res);
 	free(res);
 	return (print_char);
 }

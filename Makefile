@@ -6,7 +6,7 @@
 #    By: kharuya <kharuya@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 17:02:00 by kharuya           #+#    #+#              #
-#    Updated: 2024/11/13 14:53:53 by kharuya          ###   ########.fr        #
+#    Updated: 2024/12/08 01:01:21 by kharuya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME	= libftprintf.a
 CC		= cc
 FLAGS	= -Wall -Wextra -Werror
 LIBFT	= ./libft/libft.a
-SRCS	= ft_printf.c ft_printf_char.c ft_printf_str.c ft_printf_int.c ft_printf_p.c ft_printf_u.c ft_printf_x.c 
+SRCS	= ft_printf.c ft_printf_c.c ft_printf_s.c ft_printf_i.c ft_printf_p.c ft_printf_u.c ft_printf_xX.c
 
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
