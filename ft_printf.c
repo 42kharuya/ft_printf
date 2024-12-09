@@ -28,7 +28,7 @@ static	int	ft_printf_format(const char format, va_list args)
 	else if (format == 'u')
 		print_char += ft_printf_u(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
-		print_char += ft_printf_xX(va_arg(args, unsigned int), format);
+		print_char += ft_printf_x(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_char += ft_printf_c('%');
 	return (print_char);

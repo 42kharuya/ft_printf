@@ -12,19 +12,7 @@
 
 #include "ft_printf.h"
 
-static char	*ft_zero_handle(void)
-{
-	char	*ans;
-
-	ans = (char *)malloc(sizeof(char) * 2);
-	if (!ans)
-		return (NULL);
-	ans[0] = '0';
-	ans[1] = '\0';
-	return (ans);
-}
-
-static size_t	ft_count_digits(unsigned int u)
+static	size_t	ft_count_digits(unsigned int u)
 {
 	int	res_digit;
 
@@ -73,8 +61,6 @@ static	char	*ft_itoa_unsigned(unsigned int u)
 	size_t	count;
 	char	*ans;
 
-	if (u == 0)
-		return (ft_zero_handle());
 	count = ft_count_digits(u);
 	ans = (char *)malloc(sizeof(char) * (count + 1));
 	if (!ans)
@@ -87,7 +73,14 @@ int	ft_printf_u(unsigned int u)
 	char	*res;
 	int		print_char;
 
+	if (u == 0)
+	{
+		ft_printf_s("0");
+		return (1);
+	}
 	res = ft_itoa_unsigned(u);
+	if (!res)
+		return (0);
 	print_char = ft_printf_s(res);
 	free(res);
 	return (print_char);
