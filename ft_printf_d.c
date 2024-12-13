@@ -12,12 +12,14 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_i(int d)
+int	ft_printf_d(int d)
 {
 	char	*res;
 	int		print_char;
 
 	res = ft_itoa(d);
+	if (!res)
+		return (-1);
 	print_char = ft_printf_s(res);
 	free(res);
 	return (print_char);

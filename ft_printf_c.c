@@ -12,8 +12,10 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_c(char c)
+int	ft_printf_c(int d)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	unsigned char	c;
+
+	c = (unsigned char)d;
+	return (write(1, &c, 1));
 }

@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 //include
-# include <stdio.h>
 # include <stdarg.h>
 # include "libft/libft.h"
 
@@ -24,9 +23,9 @@
 
 //prototype
 int	ft_printf(const	char *format, ...);
-int	ft_printf_c(char c);
+int	ft_printf_c(int c);
 int	ft_printf_s(char *str);
-int	ft_printf_i(int d);
+int	ft_printf_d(int d);
 int	ft_printf_u(unsigned int u);
 int	ft_printf_x(unsigned int n, const char format);
 int	ft_printf_p(void *ptr);

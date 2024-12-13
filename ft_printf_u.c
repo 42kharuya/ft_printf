@@ -74,13 +74,10 @@ int	ft_printf_u(unsigned int u)
 	int		print_char;
 
 	if (u == 0)
-	{
-		ft_printf_s("0");
-		return (1);
-	}
+		return (ft_printf_s("0"));
 	res = ft_itoa_unsigned(u);
 	if (!res)
-		return (0);
+		return (-1);
 	print_char = ft_printf_s(res);
 	free(res);
 	return (print_char);

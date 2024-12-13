@@ -31,7 +31,10 @@ int	ft_printf_address(uintptr_t ptr_data)
 	}
 	start = index + 1;
 	while (res[start])
-		ft_putchar_fd(res[start++], 1);
+	{
+		if (ft_printf_c(res[start++]) == -1)
+			return (-1);
+	}
 	return (16 - index - 1);
 }
 
@@ -39,15 +42,17 @@ int	ft_printf_p(void *ptr)
 {
 	uintptr_t	ptr_data;
 	int			count;
+	int			error_check;
 
 	if (!ptr)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
+		return (ft_printf_s("(nil)"));
 	ptr_data = (uintptr_t)ptr;
-	count = 2;
-	write(1, "0x", 2);
-	count += ft_printf_address(ptr_data);
+	count = ft_printf_s("0x");
+	if (count == -1)
+		return (-1);
+	error_check = ft_printf_address(ptr_data);
+	if (error_check == -1)
+		return (-1);
+	count += error_check;
 	return (count);
 }

@@ -24,7 +24,7 @@ static	int	ft_printf_format(const char format, va_list args)
 	else if (format == 'p')
 		print_char += ft_printf_p(va_arg(args, void *));
 	else if (format == 'd' || format == 'i')
-		print_char += ft_printf_i(va_arg(args, int));
+		print_char += ft_printf_d(va_arg(args, int));
 	else if (format == 'u')
 		print_char += ft_printf_u(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
@@ -37,7 +37,8 @@ static	int	ft_printf_format(const char format, va_list args)
 int	ft_printf(const	char *format, ...)
 {
 	va_list	args;
-	size_t	count;
+	int		count;
+	int		error_check;
 
 	count = 0;
 	if (!format)
@@ -45,12 +46,15 @@ int	ft_printf(const	char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
+		error_check = 0;
 		if (*format != '%')
-			count += ft_printf_c(*format);
+			error_check = ft_printf_c(*format);
 		else if (*format == '%' && *(format + 1))
-			count += ft_printf_format(*(++format), args);
-		if (*format)
-			format++;
+			error_check = ft_printf_format(*(++format), args);
+		if (error_check == -1)
+			return (-1);
+		count += error_check;
+		format++;
 	}
 	va_end(args);
 	return (count);
